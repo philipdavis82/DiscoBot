@@ -1,9 +1,14 @@
 !test :: 
+	Does something
 
 !roll :: <x>d<y> cmd
+	rolls dice and writes result
 	x = amount of dice
 	y = type of die
 	cmd = [all,sep]
 
 !last :: rolls last dice with new outcome
 	
+!clear :: <number>
+	deletes a number of messeges
+	number = number of messeges to delete

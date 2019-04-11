@@ -12,7 +12,9 @@ with open('help.txt') as file:
 
 @bot.command()
 async def test(ctx):
-    await ctx.send('Fuck You! {0}'.format(ctx.author))
+    author = str(ctx.author)
+    author,_ = author.split('#')
+    await ctx.send('Fuck You {0}!'.format(author))
 
 @bot.command()
 async def roll(ctx,args,cmd='all'):
@@ -46,7 +48,15 @@ async def cmds(ctx,cmd='nan'):
         except:
             await ctx.send("??????????")
 
-
+@bot.command(pass_context=True)
+async def clear(ctx,number='1'):
+    #channel = discord.TextChannel()
+    channel = ctx.channel
+    mgs = [] #Empty list to put all the messages in the log
+    number = int(number) #Converting the amount of messages to delete to an integer
+    async for messege in channel.history(limit = number):
+        mgs.append(messege)
+        await messege.delete()
 
 
 bot.run(TOKEN)
