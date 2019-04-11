@@ -1,0 +1,9 @@
+!test :: 
+
+!roll :: <x>d<y> cmd
+	x = amount of dice
+	y = type of die
+	cmd = [all,sep]
+
+!last :: rolls last dice with new outcome
+	
