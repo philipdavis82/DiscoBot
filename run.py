@@ -40,7 +40,7 @@ async def last(ctx,cmd='nan'):
 
 @bot.command()
 async def cmds(ctx,cmd='nan'):
-    if ctx == "Seadia":
+    if str(ctx.author) == "Seadia":
         await ctx.send("AHHHHHHHHHHHHHHHHHH")
     else:
         try:
