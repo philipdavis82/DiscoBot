@@ -9,6 +9,12 @@
 
 !last :: rolls last dice with new outcome
 	
-!clear :: <number>
+!edit :: <x> <y> <link>
+	edits out slices with sound baised on inputs
+	x = tolerance 1-1000 : The smaller the quiter
+	y = bins 0.1 - 0.5 : analysis resolution in seconds
+	link = youtube link : something with pauses preferably
+
+!clear :: <number> *Disabled
 	deletes a number of messeges
 	number = number of messeges to delete

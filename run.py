@@ -3,6 +3,7 @@ from discord.ext import commands
 import tools
 
 
+
 TOKEN = 'NTY1NjY5MzQyNTk1OTA3NjE1.XK53EA.4RJyFJGeUPxMmyH0jwheiV0UfpU'
 
 bot = commands.Bot(command_prefix='!')
@@ -14,10 +15,10 @@ with open('help.txt') as file:
 async def test(ctx):
     author = str(ctx.author)
     author,_ = author.split('#')
-    await ctx.send('Fuck You {0}!'.format(author))
+    await ctx.send('Hello {0}!'.format(author))
 
 @bot.command()
-async def roll(ctx,args,cmd='all'):
+async def roll(ctx,args='1d1',cmd='all'):
     #await ctx.send(cmd)
     try:
         amount,die = args.split('d')
@@ -38,17 +39,54 @@ async def last(ctx,cmd='nan'):
     except:
         await ctx.send("Dice Commander Failed")
 
+
 @bot.command()
-async def cmds(ctx,cmd='nan'):
-    if str(ctx.author) == "Seadia":
+async def edit(ctx,tolerance = '30',step = '0.5',link='nan'):
+    await ctx.send("I'll get on it")
+    import video
+    if True:
+        try:
+            video_path = video.download(link)
+            tolerance = int(tolerance)
+            step = float(step)
+        except:
+            await ctx.send("Oh God")
+        else:
+            ve = video.VideoEditer(tolerance=tolerance)
+            ve.extract_audio()
+            null_video = ve.run()
+            try:
+                ds_video = discord.File(null_video)
+            except:
+                await ctx.send(null_video)
+            else:
+                await ctx.send("Here it is",file=ds_video)
+
+    if False:
+        video_path = video.download(link)
+        ve = video.VideoEditer()
+        ve.extract_audio()
+        null_video = ve.run()
+        ds_video = discord.File(null_video)
+        await ctx.send("Here it is",file=ds_video)
+
+    
+    
+    
+
+@bot.command()
+async def h(ctx,cmd='nan'):
+    arth,_ = str(ctx.author).split('#')
+    if arth == "Seadia":
         await ctx.send("AHHHHHHHHHHHHHHHHHH")
+        await ctx.send(help_text)
     else:
         try:
             await ctx.send(help_text)
         except:
             await ctx.send("??????????")
 
-@bot.command(pass_context=True)
+'''@bot.command(pass_context=True)
 async def clear(ctx,number='1'):
     #channel = discord.TextChannel()
     channel = ctx.channel
@@ -56,7 +94,7 @@ async def clear(ctx,number='1'):
     number = int(number) #Converting the amount of messages to delete to an integer
     async for messege in channel.history(limit = number):
         mgs.append(messege)
-        await messege.delete()
+        await messege.delete()'''
 
 
 bot.run(TOKEN)
