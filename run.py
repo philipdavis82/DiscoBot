@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import tools
+from tree import Tree
 
 
 
@@ -71,7 +72,39 @@ async def edit(ctx,tolerance = '30',step = '0.5',link='nan'):
         await ctx.send("Here it is",file=ds_video)
 
     
+@bot.command()
+async def tree(ctx,start="35,400,70",atts=None):
+    await ctx.send("Oh Boy, A Tree!!")
+    try:
+        atts = atts.split(",")
+        kwargs = {}
+        for att in atts:
+            att = att.split("=")
+            try:
+                att[1] = int(att[1])
+            except:
+                try:
+                    att[1] = float(att[1])
+                except:
+                    att[1] = att[1]
+            kwargs[att[0]] = att[1]
+        tre=Tree(**kwargs)
+    except:
+        print("Exception")
+        tre = Tree()
+    try:
+        width,length,angle = start.split(",")
+        width = int(width)
+        length = int(length)
+        angle = int(angle)
+    except:
+        width,length,angle = 35,400,70
+    tre.makeBranches([tre.start],[width],[length],[angle])
+    ds_tree = discord.File("E:/Trees/tree.png")
+    await ctx.send("Here it is",file=ds_tree)
     
+
+        
     
 
 @bot.command()

@@ -1,7 +1,7 @@
 !test :: 
 	Does something
 
-!roll :: <x>d<y> cmd
+!roll :: xdy cmd
 	rolls dice and writes result
 	x = amount of dice
 	y = type of die
@@ -9,11 +9,39 @@
 
 !last :: rolls last dice with new outcome
 	
-!edit :: <x> <y> <link>
+!edit :: x y link
 	edits out slices with sound baised on inputs
 	x = tolerance 1-1000 : The smaller the quiter
 	y = bins 0.1 - 0.5 : analysis resolution in seconds
 	link = youtube link : something with pauses preferably
+
+!tree :: x1,x2,x3 y1,y2,...,yn
+	x : 
+	35,400,70
+
+	width=35
+	length=400
+	angle=70
+
+
+	y :	
+	angle=20,branch_number=2
+
+	angle=90,
+	branch_number=4,
+	itterations=6,
+	initial_branch=1,
+	R=255,
+	G=255,
+	B=255,
+	image_size_x = 2000,
+	image_size_y = 2000,
+	w_factor=0.7,
+	l_factor=0.9,
+	l_vol=0.5,
+	b_vol=0,
+	a_vol=0.2,
+	symetry = 0
 
 !clear :: <number> *Disabled
 	deletes a number of messeges

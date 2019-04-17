@@ -10,7 +10,7 @@ class dice_commander():
     def combine_dice(self,dice,amount,*args,**kwargs):
         self.args = [dice,amount]
         self.last = self.combine_dice
-        self.roll = np.random.randint(1,dice,amount)
+        self.roll = np.random.randint(1,dice+1,amount)
         return str(self.roll.sum())
 
     def seperate_dice(self,dice,amount,*args,**kwargs):
