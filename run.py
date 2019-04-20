@@ -14,9 +14,13 @@ with open('help.txt') as file:
 
 @bot.command()
 async def test(ctx):
-    author = str(ctx.author)
-    author,_ = author.split('#')
-    await ctx.send('Hello {0}!'.format(author))
+    arth,_ = str(ctx.author).split('#')
+    if arth == "DumDum":
+        await ctx.send("AHHHHHHHHHHHHHHHHHH")
+    else:
+        author = str(ctx.author)
+        author,_ = author.split('#')
+        await ctx.send('Hello {0}!'.format(author))
 
 @bot.command()
 async def roll(ctx,args='1d1',cmd='all'):

@@ -1,7 +1,6 @@
-!test :: 
-	Does something
+!test :: Does something
 
-!roll :: xdy cmd
+!roll xdy cmd
 	rolls dice and writes result
 	x = amount of dice
 	y = type of die
@@ -9,13 +8,13 @@
 
 !last :: rolls last dice with new outcome
 	
-!edit :: x y link
+!edit x y link
 	edits out slices with sound baised on inputs
 	x = tolerance 1-1000 : The smaller the quiter
 	y = bins 0.1 - 0.5 : analysis resolution in seconds
 	link = youtube link : something with pauses preferably
 
-!tree :: x1,x2,x3 y1,y2,...,yn
+!tree x1,x2,x3 y1,y2,...,yn
 	x : 
 	35,400,70
 
