@@ -4,13 +4,12 @@ import tools
 from tree import Tree
 
 
-
-TOKEN = 'NTY1NjY5MzQyNTk1OTA3NjE1.XK53EA.4RJyFJGeUPxMmyH0jwheiV0UfpU'
+with open('TOKEN.txt') as file:
+        TOKEN = file.read()
 
 bot = commands.Bot(command_prefix='!')
 roller = tools.dice_commander()
-with open('help.txt') as file:
-    help_text = file.read()
+
 
 @bot.command()
 async def test(ctx):
@@ -77,7 +76,7 @@ async def edit(ctx,tolerance = '30',step = '0.5',link='nan'):
 
     
 @bot.command()
-async def tree(ctx,start="35,400,70",atts=None):
+async def tree(ctx,atts=None):
     await ctx.send("Oh Boy, A Tree!!")
     try:
         atts = atts.split(",")
@@ -96,14 +95,8 @@ async def tree(ctx,start="35,400,70",atts=None):
     except:
         print("Exception")
         tre = Tree()
-    try:
-        width,length,angle = start.split(",")
-        width = int(width)
-        length = int(length)
-        angle = int(angle)
-    except:
-        width,length,angle = 35,400,70
-    tre.makeBranches([tre.start],[width],[length],[angle])
+
+    tre.makeBranches([tre.start],*tre.start_args)
     ds_tree = discord.File("E:/Trees/tree.png")
     await ctx.send("Here it is",file=ds_tree)
     
@@ -113,6 +106,8 @@ async def tree(ctx,start="35,400,70",atts=None):
 
 @bot.command()
 async def h(ctx,cmd='nan'):
+    with open('help.txt') as file:
+        help_text = file.read()
     arth,_ = str(ctx.author).split('#')
     if arth == "Seadia":
         await ctx.send("AHHHHHHHHHHHHHHHHHH")

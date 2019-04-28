@@ -15,33 +15,33 @@
 	y = bins 0.1 - 0.5 : analysis resolution in seconds
 	link = youtube link : something with pauses preferably
 
-!tree x1,x2,x3 y1,y2,...,yn
-	x : 
-	35,400,70
+!tree atts
+	atts::
 
-	width=35
-	length=400
-	angle=70
+		sangle=90,..............starting angle					
+		length=400,.............branch length in pixles
+		width=35,...............branch width in pixles
+		angle=90,...............branch angle
+		branch_number=4,........number of branches generated at every point
+		itterations=6,..........number of layers of branches
+		initial_branch=1,.......number of initial branches
+		R=255,..................Red value of brach color
+		G=255,..................Green value of brach color
+		B=255,..................Blue value of brach color
+		BR=0,...................Red value of Background color
+		BG=0,...................Green value of background color
+		BB=0,...................Blue value of background color
+		image_size_x = 2000,....number of pixles in x direction
+		image_size_y = 2000,....number of pixles in y direction
+		w_factor=0.7,...........reducing factor of branch width each layer 0-1
+		l_factor=0.9,...........reducing factor of branch length each layer 0-1
+		l_vol=0.5,..............volitility facotor of branch length 0-1 ;bigger = more volitile
+		b_vol=0,................volitility facotor of branch numbner positive integer; bigger = more random branches
+		a_vol=0.2,..............volitility facotor of branch angle 0-1 ;bigger = more volitile
+		symetry = 0.............symetry factor on angle, -1 - 1 more negitive = more left, more positive = more right 
 
-
-	y :	
-	angle=20,branch_number=2
-
-	angle=90,
-	branch_number=4,
-	itterations=6,
-	initial_branch=1,
-	R=255,
-	G=255,
-	B=255,
-	image_size_x = 2000,
-	image_size_y = 2000,
-	w_factor=0.7,
-	l_factor=0.9,
-	l_vol=0.5,
-	b_vol=0,
-	a_vol=0.2,
-	symetry = 0
+	exmpl:
+		!tree width=45,length=600,sangle=70,R=255,G=0,B=50,BR=255,BG=255,BB=255
 
 !clear :: <number> *Disabled
 	deletes a number of messeges

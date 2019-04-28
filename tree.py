@@ -42,6 +42,9 @@ class Tree():
             return True
 
     def __init__(self,
+            sangle=90,
+            length=400,
+            width=35,
             angle=90,
             branch_number=4,
             itterations=6,
@@ -68,7 +71,7 @@ class Tree():
         self.im = Image.new(mode='RGB',size=image_size,color=back_color)
         self.draw = ImageDraw.Draw(self.im)
 
-
+        self.start_args = [[width],[length],[sangle]]
 
         self.image_size = image_size
         self.w_factor = w_factor
