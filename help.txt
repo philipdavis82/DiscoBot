@@ -9,7 +9,7 @@
 
 !last :: rolls last dice with new outcome
 	
-!edit x y link
+!edit link x y 
 	edits out slices with sound baised on inputs
 	x = tolerance 1-1000 : The smaller the quiter
 	y = bins 0.1 - 0.5 : analysis resolution in seconds
@@ -31,18 +31,16 @@
 		BR=0,...................Red value of Background color
 		BG=0,...................Green value of background color
 		BB=0,...................Blue value of background color
-		image_size_x = 2000,....number of pixles in x direction
-		image_size_y = 2000,....number of pixles in y direction
+		image_size_x=2000,......number of pixles in x direction
+		image_size_y=2000,......number of pixles in y direction
 		w_factor=0.7,...........reducing factor of branch width each layer 0-1
 		l_factor=0.9,...........reducing factor of branch length each layer 0-1
 		l_vol=0.5,..............volitility facotor of branch length 0-1 ;bigger = more volitile
 		b_vol=0,................volitility facotor of branch numbner positive integer; bigger = more random branches
 		a_vol=0.2,..............volitility facotor of branch angle 0-1 ;bigger = more volitile
-		symetry = 0.............symetry factor on angle, -1 - 1 more negitive = more left, more positive = more right 
+		symetry=0...............symetry factor on angle, -1 - 1 more negitive = more left, more positive = more right 
 
 	exmpl:
 		!tree width=45,length=600,sangle=70,R=255,G=0,B=50,BR=255,BG=255,BB=255
 
-!clear :: <number> *Disabled
-	deletes a number of messeges
-	number = number of messeges to delete
+

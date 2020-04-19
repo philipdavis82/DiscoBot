@@ -45,15 +45,19 @@ async def last(ctx,cmd='nan'):
 
 
 @bot.command()
-async def edit(ctx,tolerance = '30',step = '0.5',link='nan'):
+async def edit(ctx,link,tolerance = '30',step = '0.5'):
     await ctx.send("I'll get on it")
     import video
+    print(tolerance)
+    print(step)
+    print(link)
     if True:
         try:
             video_path = video.download(link)
             tolerance = int(tolerance)
             step = float(step)
-        except:
+        except Exception as e:
+            print(e)
             await ctx.send("Oh God")
         else:
             ve = video.VideoEditer(tolerance=tolerance)
@@ -127,6 +131,7 @@ async def clear(ctx,number='1'):
     async for messege in channel.history(limit = number):
         mgs.append(messege)
         await messege.delete()'''
+
 
 
 bot.run(TOKEN)
